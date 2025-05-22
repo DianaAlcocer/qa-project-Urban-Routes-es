@@ -41,59 +41,82 @@ class UrbanRoutesPage:
 
     # Select_transport_mode
     mode_selector = (By.XPATH,'//*[@id="root"]/div/div[3]/div[3]/div[1]/div[1]')
-    flash_button = (By.XPATH,'//*[@id="root"]/div/div[3]/div[3]/div[1]/div[1]/div[2]')
-    personal_button = (By.XPATH,'//*[@id="root"]/div/div[3]/div[3]/div[1]/div[1]/div[3]')
+    #personal_button = (By.XPATH,'//*[@id="root"]/div/div[3]/div[3]/div[1]/div[1]/div[3]')
+    #personal_button = (By.CSS_SELECTOR,'div.mode:nth-of-type(3)') # NUEVO SELECTOR
+    personal_button = (By.XPATH,'//div[text()="Personal"]') # NUEVO SELECTOR
 
     # Select_transport_type
-    taxi_status = (By.XPATH,'//*[@id="root"]/div/div[3]/div[3]/div[1]/div[2]/div[3]')
-    taxi_button = (By.XPATH,'//*[@id="root"]/div/div[3]/div[3]/div[1]/div[2]/div[3]/img')
+    #taxi_status = (By.XPATH,'//*[@id="root"]/div/div[3]/div[3]/div[1]/div[2]/div[3]')
+    taxi_status = (By.CSS_SELECTOR, 'div.type:nth-of-type(3)') # NUEVO SELECTOR
+    #taxi_button = (By.XPATH,'//*[@id="root"]/div/div[3]/div[3]/div[1]/div[2]/div[3]/img')
+    taxi_button = (By.CSS_SELECTOR,'div.type:nth-of-type(3) > img') # NUEVO SELECTOR
+
+    # Set_transport
+    #book_taxi = (By.XPATH, '//*[@id="root"]/div/div[3]/div[3]/div[1]/div[3]/div[1]/button')
+    book_taxi = (By.XPATH,'//button[text()="Pedir un taxi"]') # NUEVO SELECTOR
 
     # Select_taxi-tariff
     tariff_cards_selector = (By.XPATH,'//*[@id="root"]/div/div[3]/div[3]/div[2]/div[1]')
-    comfort_status = (By.XPATH,'//*[@id="root"]/div/div[3]/div[3]/div[2]/div[1]/div[5]')
-    comfort_button = (By.XPATH,'//*[@id="root"]/div/div[3]/div[3]/div[2]/div[1]/div[5]/div[2]')
-
-    # Set_transport
-    book_taxi = (By.XPATH,'//*[@id="root"]/div/div[3]/div[3]/div[1]/div[3]/div[1]/button')
+    #comfort_status = (By.XPATH,'//*[@id="root"]/div/div[3]/div[3]/div[2]/div[1]/div[5]')
+    comfort_status = (By.CSS_SELECTOR,'div.tcard:nth-of-type(5)') # NUEVO SELECTOR
+    #comfort_button = (By.XPATH,'//*[@id="root"]/div/div[3]/div[3]/div[2]/div[1]/div[5]/div[2]')
+    #comfort_button = (By.CSS_SELECTOR,'div.tcard:nth-of-type(5) > div.tcard-title') # NUEVO SELECTOR
+    comfort_button = (By.XPATH,'//div[text()="Comfort"]') # NUEVO SELECTOR
 
     # Set-user_phone_number
-    button_add_phone_number = (By.XPATH,'//*[@id="root"]/div/div[3]/div[3]/div[2]/div[2]/div[1]/div')
-    phone_number = (By.XPATH,"//input[@id='phone']")
-    button_summit_phone = (By.XPATH,'//*[@id="root"]/div/div[1]/div[2]/div[1]/form/div[2]/button')
+    #button_add_phone_number = (By.XPATH,'//*[@id="root"]/div/div[3]/div[3]/div[2]/div[2]/div[1]/div')
+    button_add_phone_number = (By.XPATH,'//div[text()="Número de teléfono"]') # NUEVO SELECTOR
+    #phone_number = (By.XPATH,"//input[@id='phone']")
+    #phone_number = (By.CSS_SELECTOR,'input#phone') # NUEVO SELECTOR
+    phone_number = (By.ID,'phone') # NUEVO SELECTOR
+    #button_summit_phone = (By.XPATH,'//*[@id="root"]/div/div[1]/div[2]/div[1]/form/div[2]/button')
+    button_summit_phone = (By.XPATH,'//button[text()="Siguiente"]') # NUEVO SELECTOR
 
     # Set-user_phone_code
-    phone_code = (By.XPATH,'//*[@id="code"]')
-    button_summit_code = (By.XPATH,'//*[@id="root"]/div/div[1]/div[2]/div[2]/form/div[2]/button[1]')
+    #phone_code = (By.XPATH,'//*[@id="code"]')
+    #phone_code = (By.CSS_SELECTOR,'input#code') # NUEVO SELECTOR
+    phone_code = (By.ID, 'code') # NUEVO SELECTOR
+    #button_summit_code = (By.XPATH,'//*[@id="root"]/div/div[1]/div[2]/div[2]/form/div[2]/button[1]')
+    button_summit_code = (By.XPATH,'//button[text()="Confirmar"]') # NUEVO SELECTOR
 
     # Set-user_payment
-    button_add_payment = (By.XPATH,'//*[@id="root"]/div/div[3]/div[3]/div[2]/div[2]/div[2]/div[1]')
-    button_add_creditcard = (By.XPATH,'//*[@id="root"]/div/div[2]/div[2]/div[1]/div[2]/div[3]/div[2]')
+    #button_add_payment = (By.XPATH,'//*[@id="root"]/div/div[3]/div[3]/div[2]/div[2]/div[2]/div[1]')
+    button_add_payment = (By.XPATH,'//div[@class="pp-text" and text()="Método de pago"]') # NUEVO SELECTOR
+    #button_add_creditcard = (By.XPATH,'//*[@id="root"]/div/div[2]/div[2]/div[1]/div[2]/div[3]/div[2]')
+    button_add_creditcard = (By.XPATH,'//div[text()="Agregar tarjeta"]') # NUEVO SELECTOR
     credit_card_number = (By.ID,'number')
-    #credit_card_number_1 = (By.XPATH,'//*[@id="number"]')
+    #credit_card_number = (By.XPATH,'//*[@id="number"]')
     credit_card_code = (By.NAME, 'code')
-    #credit_card_code_1 = (By.XPATH,'//*[@id="code"]')
-    #credit_card_code_2 = (By.ID, 'code')
-    #credit_card_code_3 = (By.CLASS_NAME, 'card-input')
-    button_add_card = (By.XPATH, '//*[@id="root"]/div/div[2]/div[2]/div[2]/form/div[3]/button[1]')
+    #button_add_card = (By.XPATH, '//*[@id="root"]/div/div[2]/div[2]/div[2]/form/div[3]/button[1]')
+    button_add_card = (By.XPATH,'//button[text()="Agregar"]') # NUEVO SELECTOR
     button_close_card_window = (By.XPATH,'(//button[@class="close-button section-close"])[3]')
 
     # Input_message_for_driver
     message_for_driver = (By.NAME,'comment')
 
     # Additional_items
-    blanket_handkerchief_slider = (By.XPATH,'//*[@id="root"]/div/div[3]/div[3]/div[2]/div[2]/div[4]/div[2]/div[1]/div/div[2]/div')
-    blanket_handkerchief_status = (By.XPATH,'//*[@id="root"]/div/div[3]/div[3]/div[2]/div[2]/div[4]/div[2]/div[1]/div/div[2]/div/input')
-    ice_cream_add_button = (By.XPATH,'//*[@id="root"]/div/div[3]/div[3]/div[2]/div[2]/div[4]/div[2]/div[3]/div/div[2]/div[1]/div/div[2]/div/div[3]')
-    ice_cream_counter = (By.XPATH, '//*[@id="root"]/div/div[3]/div[3]/div[2]/div[2]/div[4]/div[2]/div[3]/div/div[2]/div[1]/div/div[2]/div/div[2]')
+    #blanket_handkerchief_slider = (By.XPATH,'//*[@id="root"]/div/div[3]/div[3]/div[2]/div[2]/div[4]/div[2]/div[1]/div/div[2]/div')
+    #blanket_handkerchief_slider = (By.CSS_SELECTOR,'div.reqs-body > div:nth-child(1) > div > div.r-sw > div') # NUEVO SELECTOR
+    blanket_handkerchief_slider= (By.XPATH, '(//div[@class="switch"])[1]')  # NUEVO SELECTOR
+    #blanket_handkerchief_status = (By.XPATH,'//*[@id="root"]/div/div[3]/div[3]/div[2]/div[2]/div[4]/div[2]/div[1]/div/div[2]/div/input')
+    #blanket_handkerchief_status = (By.CSS_SELECTOR,'div.reqs-body > div:nth-child(1) > div > div.r-sw > div > input') # NUEVO SELECTOR
+    blanket_handkerchief_status = (By.XPATH, '(//input[@class="switch-input"])[1]')  # NUEVO SELECTOR
+    #ice_cream_add_button = (By.XPATH,'//*[@id="root"]/div/div[3]/div[3]/div[2]/div[2]/div[4]/div[2]/div[3]/div/div[2]/div[1]/div/div[2]/div/div[3]')
+    #ice_cream_add_button = (By.CSS_SELECTOR,'div.r-group-items > div:nth-child(1) > div > div.r-counter > div > div.counter-plus') # NUEVO SELECTOR
+    ice_cream_add_button = (By.XPATH, '(//div[@class="counter-plus"])[1]') # NUEVO SELECTOR
+    #ice_cream_counter = (By.XPATH, '//*[@id="root"]/div/div[3]/div[3]/div[2]/div[2]/div[4]/div[2]/div[3]/div/div[2]/div[1]/div/div[2]/div/div[2]')
+    #ice_cream_counter = (By.CSS_SELECTOR,'div.r-group-items > div:nth-child(1) > div > div.r-counter > div > div.counter-value') # NUEVO SELECTOR
+    ice_cream_counter = (By.XPATH, '(//div[@class="counter-value"])[1]') # NUEVO SELECTOR
 
     # Pedir_taxi
     confirm_taxi = (By.CLASS_NAME,'smart-button')
-    #confirm_taxi_1 = (By.XPATH,'//*[@id="root"]/div/div[3]/div[4]/button')
+    #confirm_taxi = (By.XPATH,'//*[@id="root"]/div/div[3]/div[4]/button')
 
     # Buscar_automóvil
-    search_taxi = (By.XPATH,'//*[@id="root"]/div/div[5]')
+    #search_taxi = (By.XPATH,'//*[@id="root"]/div/div[5]')
+    search_taxi = (By.CSS_SELECTOR,'button.smart-button') # NUEVO SELECTOR
 
-    # Informacion_del_viaje
+    # Información_del_viaje (CÓDIGO PENDIENTE YA QUE NO APARECEN DICHAS VENTANAS EN EL NAVEGADOR)
 
 
     def __init__(self, driver):
