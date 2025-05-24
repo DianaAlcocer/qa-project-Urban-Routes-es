@@ -30,16 +30,11 @@ _Pasos a seguir para la ejecución de las pruebas:_
 1. Abrir la carpeta del proyecto en un editor de código o IDE.
 2. Instalar paquetes _pytest_ y _selenium_.
 3. Actualizar la url del servidor en _urban_routes_url_ en el archivo _data.py_.
-4. Abrir la terminal y ubicarte en la carpeta del proyecto con el comando _cd <ruta/del/proyecto>_. Ejemplo:
-```sh
-cd projects/qa-project-Urban-Routes-es
-```
-5. Ejecuta el comando pytest:
-```sh
-pytest
-```
+4. Ejecutar las pruebas mediante la herramienta 'Run':
 
-- El comando _pytest_ ejecutará los archivos que comienzan con 'test_' o terminan con '_test' dentro de la ruta del proyecto especificada, no distingue entre mayúsculas y minúsculas.
+>Se pueden ejecutar de forma individual: haciendo click en el icono de Run ubicado a la izquierda de cada prueba,
+o ejecutar Run para todos los test del archivo Main.py: haciendo click en el icono de Run ubicado en la parte superior
+del archivo.
 
 >NOTE: Si deseas modificar los datos sobre la ruta, teléfono, número y código de la tarjeta de credito, mensaje al conductor, elementos adicionales como manta y numero de helados, dirigete al archivo _data.py_ 
 

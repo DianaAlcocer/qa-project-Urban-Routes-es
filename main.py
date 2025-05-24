@@ -1,7 +1,9 @@
 import data
 import time
+import pytest
 from selenium import webdriver
 from selenium.webdriver import Keys
+from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.wait import WebDriverWait
@@ -41,80 +43,51 @@ class UrbanRoutesPage:
 
     # Select_transport_mode
     mode_selector = (By.XPATH,'//*[@id="root"]/div/div[3]/div[3]/div[1]/div[1]')
-    #personal_button = (By.XPATH,'//*[@id="root"]/div/div[3]/div[3]/div[1]/div[1]/div[3]')
-    #personal_button = (By.CSS_SELECTOR,'div.mode:nth-of-type(3)') # NUEVO SELECTOR
-    personal_button = (By.XPATH,'//div[text()="Personal"]') # NUEVO SELECTOR
+    personal_button = (By.XPATH,'//div[text()="Personal"]')
 
     # Select_transport_type
-    #taxi_status = (By.XPATH,'//*[@id="root"]/div/div[3]/div[3]/div[1]/div[2]/div[3]')
-    taxi_status = (By.CSS_SELECTOR, 'div.type:nth-of-type(3)') # NUEVO SELECTOR
-    #taxi_button = (By.XPATH,'//*[@id="root"]/div/div[3]/div[3]/div[1]/div[2]/div[3]/img')
-    taxi_button = (By.CSS_SELECTOR,'div.type:nth-of-type(3) > img') # NUEVO SELECTOR
+    taxi_status = (By.CSS_SELECTOR, 'div.type:nth-of-type(3)')
+    taxi_button = (By.CSS_SELECTOR,'div.type:nth-of-type(3) > img')
 
     # Set_transport
-    #book_taxi = (By.XPATH, '//*[@id="root"]/div/div[3]/div[3]/div[1]/div[3]/div[1]/button')
-    book_taxi = (By.XPATH,'//button[text()="Pedir un taxi"]') # NUEVO SELECTOR
+    book_taxi = (By.XPATH,'//button[text()="Pedir un taxi"]')
 
     # Select_taxi-tariff
     tariff_cards_selector = (By.XPATH,'//*[@id="root"]/div/div[3]/div[3]/div[2]/div[1]')
-    #comfort_status = (By.XPATH,'//*[@id="root"]/div/div[3]/div[3]/div[2]/div[1]/div[5]')
-    comfort_status = (By.CSS_SELECTOR,'div.tcard:nth-of-type(5)') # NUEVO SELECTOR
-    #comfort_button = (By.XPATH,'//*[@id="root"]/div/div[3]/div[3]/div[2]/div[1]/div[5]/div[2]')
-    #comfort_button = (By.CSS_SELECTOR,'div.tcard:nth-of-type(5) > div.tcard-title') # NUEVO SELECTOR
-    comfort_button = (By.XPATH,'//div[text()="Comfort"]') # NUEVO SELECTOR
+    comfort_status = (By.CSS_SELECTOR,'div.tcard:nth-of-type(5)')
+    comfort_button = (By.XPATH,'//div[text()="Comfort"]')
 
     # Set-user_phone_number
-    #button_add_phone_number = (By.XPATH,'//*[@id="root"]/div/div[3]/div[3]/div[2]/div[2]/div[1]/div')
-    button_add_phone_number = (By.XPATH,'//div[text()="Número de teléfono"]') # NUEVO SELECTOR
-    #phone_number = (By.XPATH,"//input[@id='phone']")
-    #phone_number = (By.CSS_SELECTOR,'input#phone') # NUEVO SELECTOR
-    phone_number = (By.ID,'phone') # NUEVO SELECTOR
-    #button_summit_phone = (By.XPATH,'//*[@id="root"]/div/div[1]/div[2]/div[1]/form/div[2]/button')
-    button_summit_phone = (By.XPATH,'//button[text()="Siguiente"]') # NUEVO SELECTOR
+    button_add_phone_number = (By.XPATH,'//div[text()="Número de teléfono"]')
+    phone_number = (By.ID,'phone')
+    button_summit_phone = (By.XPATH,'//button[text()="Siguiente"]')
 
     # Set-user_phone_code
-    #phone_code = (By.XPATH,'//*[@id="code"]')
-    #phone_code = (By.CSS_SELECTOR,'input#code') # NUEVO SELECTOR
-    phone_code = (By.ID, 'code') # NUEVO SELECTOR
-    #button_summit_code = (By.XPATH,'//*[@id="root"]/div/div[1]/div[2]/div[2]/form/div[2]/button[1]')
-    button_summit_code = (By.XPATH,'//button[text()="Confirmar"]') # NUEVO SELECTOR
+    phone_code = (By.ID, 'code')
+    button_summit_code = (By.XPATH,'//button[text()="Confirmar"]')
 
     # Set-user_payment
-    #button_add_payment = (By.XPATH,'//*[@id="root"]/div/div[3]/div[3]/div[2]/div[2]/div[2]/div[1]')
-    button_add_payment = (By.XPATH,'//div[@class="pp-text" and text()="Método de pago"]') # NUEVO SELECTOR
-    #button_add_creditcard = (By.XPATH,'//*[@id="root"]/div/div[2]/div[2]/div[1]/div[2]/div[3]/div[2]')
-    button_add_creditcard = (By.XPATH,'//div[text()="Agregar tarjeta"]') # NUEVO SELECTOR
+    button_add_payment = (By.XPATH,'//div[@class="pp-text" and text()="Método de pago"]')
+    button_add_creditcard = (By.XPATH,'//div[text()="Agregar tarjeta"]')
     credit_card_number = (By.ID,'number')
-    #credit_card_number = (By.XPATH,'//*[@id="number"]')
     credit_card_code = (By.NAME, 'code')
-    #button_add_card = (By.XPATH, '//*[@id="root"]/div/div[2]/div[2]/div[2]/form/div[3]/button[1]')
-    button_add_card = (By.XPATH,'//button[text()="Agregar"]') # NUEVO SELECTOR
+    button_add_card = (By.XPATH,'//button[text()="Agregar"]')
     button_close_card_window = (By.XPATH,'(//button[@class="close-button section-close"])[3]')
 
     # Input_message_for_driver
     message_for_driver = (By.NAME,'comment')
 
     # Additional_items
-    #blanket_handkerchief_slider = (By.XPATH,'//*[@id="root"]/div/div[3]/div[3]/div[2]/div[2]/div[4]/div[2]/div[1]/div/div[2]/div')
-    #blanket_handkerchief_slider = (By.CSS_SELECTOR,'div.reqs-body > div:nth-child(1) > div > div.r-sw > div') # NUEVO SELECTOR
-    blanket_handkerchief_slider= (By.XPATH, '(//div[@class="switch"])[1]')  # NUEVO SELECTOR
-    #blanket_handkerchief_status = (By.XPATH,'//*[@id="root"]/div/div[3]/div[3]/div[2]/div[2]/div[4]/div[2]/div[1]/div/div[2]/div/input')
-    #blanket_handkerchief_status = (By.CSS_SELECTOR,'div.reqs-body > div:nth-child(1) > div > div.r-sw > div > input') # NUEVO SELECTOR
-    blanket_handkerchief_status = (By.XPATH, '(//input[@class="switch-input"])[1]')  # NUEVO SELECTOR
-    #ice_cream_add_button = (By.XPATH,'//*[@id="root"]/div/div[3]/div[3]/div[2]/div[2]/div[4]/div[2]/div[3]/div/div[2]/div[1]/div/div[2]/div/div[3]')
-    #ice_cream_add_button = (By.CSS_SELECTOR,'div.r-group-items > div:nth-child(1) > div > div.r-counter > div > div.counter-plus') # NUEVO SELECTOR
-    ice_cream_add_button = (By.XPATH, '(//div[@class="counter-plus"])[1]') # NUEVO SELECTOR
-    #ice_cream_counter = (By.XPATH, '//*[@id="root"]/div/div[3]/div[3]/div[2]/div[2]/div[4]/div[2]/div[3]/div/div[2]/div[1]/div/div[2]/div/div[2]')
-    #ice_cream_counter = (By.CSS_SELECTOR,'div.r-group-items > div:nth-child(1) > div > div.r-counter > div > div.counter-value') # NUEVO SELECTOR
-    ice_cream_counter = (By.XPATH, '(//div[@class="counter-value"])[1]') # NUEVO SELECTOR
+    blanket_handkerchief_slider= (By.XPATH, '(//div[@class="switch"])[1]')
+    blanket_handkerchief_status = (By.XPATH, '(//input[@class="switch-input"])[1]')
+    ice_cream_add_button = (By.XPATH, '(//div[@class="counter-plus"])[1]')
+    ice_cream_counter = (By.XPATH, '(//div[@class="counter-value"])[1]')
 
     # Pedir_taxi
     confirm_taxi = (By.CLASS_NAME,'smart-button')
-    #confirm_taxi = (By.XPATH,'//*[@id="root"]/div/div[3]/div[4]/button')
 
     # Buscar_automóvil
-    #search_taxi = (By.XPATH,'//*[@id="root"]/div/div[5]')
-    search_taxi = (By.CSS_SELECTOR,'button.smart-button') # NUEVO SELECTOR
+    search_taxi = (By.CSS_SELECTOR,'button.smart-button')
 
     # Información_del_viaje (CÓDIGO PENDIENTE YA QUE NO APARECEN DICHAS VENTANAS EN EL NAVEGADOR)
 
@@ -262,115 +235,113 @@ class UrbanRoutesPage:
 class TestUrbanRoutes:
 
     driver = None
+    routes_page = None
 
-#    @classmethod
-#    def setup_class(cls):
-#        # no lo modifiques, ya que necesitamos un registro adicional habilitado para recuperar el código de
-#        # confirmación del teléfono
-#        from selenium.webdriver import DesiredCapabilities
-#        capabilities = DesiredCapabilities.CHROME
-#        capabilities["goog:loggingPrefs"] = {'performance': 'ALL'}
-#        cls.driver = webdriver.Chrome(desired_capabilities=capabilities)
+    # En el setup_class(cls) original, marca 'unexpected argument' para 'desired_capabilities'.
+    # Lo que indica que este argumento ya no es compatible con las nuevas versiones de Selenium,
+    # dicho argumento se sustituyo por el objeto 'Options'.
 
     @classmethod
     def setup_class(cls):
-        # En el setup_class(cls) original, marca 'unexpected argument' para 'desired_capabilities'.
-        # Lo que indica que este argumento ya no es compatible con las nuevas versiones de Selenium,
-        # dicho argumento se sustituyo por el objeto 'Options'.
-        from selenium.webdriver.chrome.options import Options
         chrome_options = Options()
         chrome_options.set_capability("goog:loggingPrefs", {'performance': 'ALL'})
+        chrome_options.add_argument("--start-maximized")
         cls.driver = webdriver.Chrome(options=chrome_options)
-        cls.driver.maximize_window()
+        cls.driver.get(data.urban_routes_url)
+        cls.routes_page = UrbanRoutesPage(cls.driver)
+
+    # La siguiente estructura sugerida para pruebas con pytest no inicia.
+    # Se probó también sustituyendo el argumento 'Desired capabilities' por el objeto 'Options'
+    # sin resultados positivos, no encuentro el error.
+
+#    @pytest.fixture(scope='class', autouse=True)
+#    def setup(self):
+#        chrome_options = Options()
+#        chrome_options.set_capability("goog:loggingPrefs", {'performance': 'ALL'})
+#        self.driver = webdriver.Chrome(options=chrome_options)
+#        self.driver.get(data.urban_routes_url)
+#        self.routes_page = UrbanRoutesPage(self.driver)
+#        yield
+#        self.driver.quit()
 
     def test_set_route(self):
-        self.driver.get(data.urban_routes_url)
-        routes_page = UrbanRoutesPage(self.driver)
-        routes_page.wait_for_load_set_route_input()
+        self.routes_page.wait_for_load_set_route_input()
         address_from = data.address_from
         address_to = data.address_to
-        routes_page.set_route(address_from, address_to)
-        assert routes_page.get_from() == address_from
-        assert routes_page.get_to() == address_to
+        self.routes_page.set_route(address_from, address_to)
+        assert self.routes_page.get_from() == address_from
+        assert self.routes_page.get_to() == address_to
 
     def test_transport_taxi(self):
         self.test_set_route()
-        routes_page = UrbanRoutesPage(self.driver)
-        routes_page.wait_for_load_transport_selection()
-        routes_page.select_transport_taxi()
-        taxi_status = routes_page.transport_taxi_status()
+        self.routes_page.wait_for_load_transport_selection()
+        self.routes_page.select_transport_taxi()
+        taxi_status = self.routes_page.transport_taxi_status()
         assert 'active' in taxi_status
 
     def test_transport_taxi_comfort(self):
         self.test_transport_taxi()
-        routes_page = UrbanRoutesPage(self.driver)
-        routes_page.select_taxi_comfort()
-        comfort_status = routes_page.taxi_comfort_status()
+        self.routes_page.select_taxi_comfort()
+        comfort_status = self.routes_page.taxi_comfort_status()
         assert 'active' in comfort_status
 
     def test_set_phone_number(self):
         self.test_transport_taxi_comfort()
-        routes_page = UrbanRoutesPage(self.driver)
-        routes_page.wait_for_load_phone_button()
-        routes_page.page_down_1()
+        self.routes_page.wait_for_load_phone_button()
+        self.routes_page.page_down_1()
         user_phone_number = data.phone_number
-        routes_page.set_user_phone_number(user_phone_number)
-        assert routes_page.get_phone_number() == user_phone_number
+        self.routes_page.set_user_phone_number(user_phone_number)
+        assert self.routes_page.get_phone_number() == user_phone_number
 
     def test_set_payment(self):
         self.test_transport_taxi_comfort()
-        routes_page = UrbanRoutesPage(self.driver)
-        routes_page.wait_for_load_payment_button()
-        routes_page.page_down_1()
+        self.routes_page.wait_for_load_payment_button()
+        self.routes_page.page_down_1()
         card_number = data.card_number
         card_code = data.card_code
-        routes_page.add_user_credit_card(card_number,card_code)
-        assert routes_page.get_credit_card_number() == card_number
-        assert routes_page.get_credit_card_code() == card_code
+        self.routes_page.add_user_credit_card(card_number,card_code)
+        assert self.routes_page.get_credit_card_number() == card_number
+        assert self.routes_page.get_credit_card_code() == card_code
 
     def test_message_for_driver(self):
         self.test_transport_taxi_comfort()
-        routes_page = UrbanRoutesPage(self.driver)
-        routes_page.page_down_1()
+        self.routes_page.page_down_1()
         message = data.message_for_driver
-        routes_page.input_message_for_driver(message)
-        assert routes_page.get_message_for_driver() == message
+        self.routes_page.input_message_for_driver(message)
+        assert self.routes_page.get_message_for_driver() == message
 
     def test_add_blanket_handkerchief(self):
         self.test_transport_taxi_comfort()
-        routes_page = UrbanRoutesPage(self.driver)
-        routes_page.page_down_1()
-        initial_status = routes_page.slider_blanket_status().is_selected()
+        self.routes_page.page_down_1()
+        initial_status = self.routes_page.slider_blanket_status().is_selected()
         blanket = data.blanket_handkerchief_order
-        routes_page.order_blanket_handkerchief(blanket)
-        final_status = routes_page.slider_blanket_status().is_selected()
+        self.routes_page.order_blanket_handkerchief(blanket)
+        final_status = self.routes_page.slider_blanket_status().is_selected()
         assert initial_status != final_status
         assert final_status == True
 
     def test_add_ice_cream(self):
         self.test_transport_taxi_comfort()
-        routes_page = UrbanRoutesPage(self.driver)
-        routes_page.page_down_2()
+        self.routes_page.page_down_2()
         ice_cream = data.ice_cream_order
-        routes_page.order_ice_cream(ice_cream)
-        assert routes_page.get_ice_cream_counter() == ice_cream
+        self.routes_page.order_ice_cream(ice_cream)
+        assert self.routes_page.get_ice_cream_counter() == ice_cream
 
     def test_button_book_a_taxi(self):
         #Precondiciones
         self.test_transport_taxi_comfort()
-        routes_page = UrbanRoutesPage(self.driver)
-        routes_page.wait_for_load_phone_button()
-        routes_page.page_down_1()
+        self.routes_page.wait_for_load_phone_button()
+        self.routes_page.page_down_1()
         user_phone_number = data.phone_number
-        routes_page.set_user_phone_number(user_phone_number)
-        routes_page.wait_for_load_payment_button()
-        routes_page.page_down_1()
+        self.routes_page.set_user_phone_number(user_phone_number)
+        self.routes_page.wait_for_load_payment_button()
+        self.routes_page.page_down_1()
         card_number = data.card_number
         card_code = data.card_code
-        routes_page.add_user_credit_card(card_number, card_code)
+        self.routes_page.add_user_credit_card(card_number, card_code)
 
         #Test
-        button_book_a_taxi = routes_page.button_book_a_taxi()
+        button_book_a_taxi = self.routes_page.button_book_a_taxi()
         assert button_book_a_taxi.is_enabled() == True
 
 #    def test_search_taxi_window(self):
@@ -398,8 +369,9 @@ class TestBookATaxi:
         from selenium.webdriver.chrome.options import Options
         chrome_options = Options()
         chrome_options.set_capability("goog:loggingPrefs", {'performance': 'ALL'})
+        chrome_options.add_argument("--start-maximized")
         cls.driver = webdriver.Chrome(options=chrome_options)
-        cls.driver.maximize_window()
+        #cls.driver.maximize_window()
 
     def test_book_a_taxi(self):
 
