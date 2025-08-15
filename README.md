@@ -13,7 +13,7 @@ _Especificaciones técnicas:_
 
 | Type     | Program                   |
 |----------|---------------------------|
-| Terminal | Cywing                    |
+| Terminal | Cygwin                    |
 | IDE      | PyCharm Community Edition |
 
 >Puedes utilizar otras terminales como WSL, Git Bash o CMD.R y otros editores de código como Visual Studio Code.
