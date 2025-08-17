@@ -18,9 +18,9 @@ _Especificaciones técnicas:_
 
 >Puedes utilizar otras terminales como WSL, Git Bash o CMD.R y otros editores de código como Visual Studio Code.
 
-| Package  | Terminal_command     |       
-|----------|----------------------|       
-| pytest   | pip install pytest   |       
+| Package  | Terminal_command     |
+|----------|----------------------|
+| pytest   | pip install pytest   |
 | selenium | pip install selenium |
 
 >Puedes utilizar la terminal o buscarlos en la pestaña _Python packages_ dentro de la aplicación PyCharm.
