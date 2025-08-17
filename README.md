@@ -11,16 +11,16 @@ _Especificaciones técnicas:_
 
 - Necesitas tener instalados los siguientes paquetes y programas: 
 
-| Type     | Program                   |
-|----------|---------------------------|
-| Terminal | Cywing                    |
-| IDE      | PyCharm Community Edition |
+| Type     | Program                    |
+|----------|----------------------------|
+| Terminal | Cygwin                     |
+| IDE      | PyCharm Community Edition  |
 
 >Puedes utilizar otras terminales como WSL, Git Bash o CMD.R y otros editores de código como Visual Studio Code.
 
-| Package  | Terminal_command     |       
-|----------|----------------------|       
-| pytest   | pip install pytest   |       
+| Package  | Terminal_command     |
+|----------|----------------------|
+| pytest   | pip install pytest   |
 | selenium | pip install selenium |
 
 >Puedes utilizar la terminal o buscarlos en la pestaña _Python packages_ dentro de la aplicación PyCharm.
@@ -32,11 +32,11 @@ _Pasos a seguir para la ejecución de las pruebas:_
 3. Actualizar la url del servidor en _urban_routes_url_ en el archivo _data.py_.
 4. Ejecutar las pruebas mediante la herramienta 'Run':
 
->Se pueden ejecutar de forma individual: haciendo click en el icono de Run ubicado a la izquierda de cada prueba,
-o ejecutar Run para todos los test del archivo Main.py: haciendo click en el icono de Run ubicado en la parte superior
+>Se pueden ejecutar de forma individual: haciendo clic en el icono de Run ubicado a la izquierda de cada prueba,
+o ejecutar Run para todos los test del archivo Main.py: haciendo clic en el icono de Run ubicado en la parte superior
 del archivo.
 
->NOTE: Si deseas modificar los datos sobre la ruta, teléfono, número y código de la tarjeta de credito, mensaje al conductor, elementos adicionales como manta y numero de helados, dirigete al archivo _data.py_ 
+>NOTE: Si deseas modificar los datos sobre la ruta, teléfono, número y código de la tarjeta de credito, mensaje al conductor, elementos adicionales como manta y número de helados, dirígete al archivo _data.py_ 
 
 _Descripción del proceso completo de pedir un taxi:_
 
