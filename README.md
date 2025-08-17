@@ -1,8 +1,8 @@
-# Diana Carolina Alcocer Garcia - Grupo 27.o - Sprint 8
 # Proyecto Urban Routes
-## _Pruebas para comprobar la funcionalidad de Urban Routes al pedir un taxi con la tarifa comfort_
 
-_Objetivo de las comprobaciones_
+## _Pruebas automatizadas para comprobar la funcionalidad de Urban Routes al pedir un taxi con la tarifa comfort_
+
+_Objetivo:_
 - Verificar que se puede introducir información en los campos de texto y la información introducida coincide con la enviada.
 - Validar que los botones están habilitados y realizan la acción esperada.
 - Comprobar que los selectores permanecen activos después de accionados.

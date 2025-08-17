@@ -58,16 +58,16 @@ class UrbanRoutesPage:
     comfort_status = (By.CSS_SELECTOR, 'div.tcard:nth-of-type(5)')
     comfort_button = (By.XPATH, '//div[text()="Comfort"]')
 
-    # Set-user_phone_number
+    # Set_user_phone_number
     button_add_phone_number = (By.XPATH, '//div[text()="Número de teléfono"]')
     phone_number = (By.ID, 'phone')
     button_summit_phone = (By.XPATH, '//button[text()="Siguiente"]')
 
-    # Set-user_phone_code
+    # Set_user_phone_code
     phone_code = (By.ID, 'code')
     button_summit_code = (By.XPATH, '//button[text()="Confirmar"]')
 
-    # Set-user_payment
+    # Set_user_payment
     button_add_payment = (By.XPATH, '//div[@class="pp-text" and text()="Método de pago"]')
     button_add_creditcard = (By.XPATH, '//div[text()="Agregar tarjeta"]')
     credit_card_number = (By.ID, 'number')
@@ -84,13 +84,13 @@ class UrbanRoutesPage:
     ice_cream_add_button = (By.XPATH, '(//div[@class="counter-plus"])[1]')
     ice_cream_counter = (By.XPATH, '(//div[@class="counter-value"])[1]')
 
-    # Pedir_taxi
+    # Book_a_taxi
     confirm_taxi = (By.CLASS_NAME, 'smart-button')
 
-    # Buscar_automóvil
+    # Search_for_a_taxi
     search_taxi = (By.CSS_SELECTOR, 'button.smart-button')
 
-    # Información_del_viaje (CÓDIGO PENDIENTE YA QUE NO APARECEN DICHAS VENTANAS EN EL NAVEGADOR)
+    # Taxi_trip_info (CÓDIGO EN PROCESO)
 
     def __init__(self, driver):
         self.driver = driver
