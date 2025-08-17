@@ -11,10 +11,17 @@ _Especificaciones técnicas:_
 
 - Necesitas tener instalados los siguientes paquetes y programas: 
 
+<<<<<<< HEAD
 | Type     | Program                    |
 |----------|----------------------------|
 | Terminal | Cygwin                     |
 | IDE      | PyCharm Community Edition  |
+=======
+| Type     | Program                   |
+|----------|---------------------------|
+| Terminal | Cygwin                    |
+| IDE      | PyCharm Community Edition |
+>>>>>>> 854935f5efc5a024eae9d10d2bb511f84915ed11
 
 >Puedes utilizar otras terminales como WSL, Git Bash o CMD.R y otros editores de código como Visual Studio Code.
 
